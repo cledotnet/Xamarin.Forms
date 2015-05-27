@@ -1,10 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <BasePage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DiabetesLog.HomePage">
-  <StackLayout>
-    <Label Text="Welcome!" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
-  </StackLayout>
+             x:Class="DiabetesLog.InsulinDosePage">
+	<Label Text="Record an insulin dose." VerticalOptions="Center" HorizontalOptions="Center" />
 
   <BasePage.ToolbarItems>
     <ToolbarItem Text="meter" Order="Primary" x:Name="GlucoseCheckItem">
@@ -26,5 +24,5 @@
     <ToolbarItem Text="discover" Order="Secondary" />
     <ToolbarItem Text="evolve" Order="Secondary" />
   </BasePage.ToolbarItems>
-  
+
 </BasePage>

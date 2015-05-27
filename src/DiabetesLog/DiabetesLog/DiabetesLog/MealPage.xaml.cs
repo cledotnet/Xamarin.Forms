@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace DiabetesLog
 {
-    public partial class HomePage : BasePage
+    public partial class MealPage : BasePage
     {
-        public HomePage()
+        public MealPage()
         {
             InitializeComponent();
             GlucoseCheckItem.Clicked += GlucoseCheckItem_Clicked;
