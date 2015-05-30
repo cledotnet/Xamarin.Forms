@@ -2,25 +2,10 @@
 <views:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:Cleveland.DotNet.Sig.DiabetesLog.Views;assembly=DiabetesLog"
+             xmlns:vm="clr-namespace:Cleveland.DotNet.Sig.DiabetesLog.ViewModels;assembly=DiabetesLog"
+             x:TypeArguments="vm:GlucoseCheckPageModel"
+             BindingContext="{x:Reference Model}"
              x:Class="Cleveland.DotNet.Sig.DiabetesLog.Views.GlucoseCheckPage">
 	<Label Text="Enter your glucose readings." VerticalOptions="Center" HorizontalOptions="Center" />
-
-  <views:BasePage.ToolbarItems>
-    <ToolbarItem Text="meter" Order="Primary" x:Name="GlucoseCheckItem">
-      <ToolbarItem.Icon>
-        <OnPlatform x:TypeArguments="FileImageSource" iOS="Diabetes-25.png" Android="Diabetes.png" WinPhone="Images/edit.png" />
-      </ToolbarItem.Icon>
-    </ToolbarItem>
-    <ToolbarItem Text="insulin" Order="Primary" x:Name="InsulinDoseItem">
-      <ToolbarItem.Icon>
-        <OnPlatform x:TypeArguments="FileImageSource" iOS="Syringe Filled-25.png" Android="Syringe.png" WinPhone="Images/search.png" />
-      </ToolbarItem.Icon>
-    </ToolbarItem>
-    <ToolbarItem Text="meal" Order="Primary" x:Name="MealItem">
-      <ToolbarItem.Icon>
-        <OnPlatform x:TypeArguments="FileImageSource" iOS="Meal Filled-25.png" Android="Meal.png" WinPhone="Images/refresh.png" />
-      </ToolbarItem.Icon>
-    </ToolbarItem>
-  </views:BasePage.ToolbarItems>
 
 </views:BasePage>

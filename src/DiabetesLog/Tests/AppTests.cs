@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Cleveland.DotNet.Sig.DiabetesLog;
+using Cleveland.DotNet.Sig.DiabetesLog.ViewModels;
 using Cleveland.DotNet.Sig.DiabetesLog.Views;
 
 namespace Tests
@@ -13,15 +14,22 @@ namespace Tests
     public class AppTests
     {
         [Test]
-        public void Instantiation_launches_HomePage()
+        public void HomePageModel_populates_static_properties()
         {
             // arrange
+            
 
             // act
-            var actual = new App();
+            var actual = new HomePageModel();
 
             // assert
-            Assert.That(actual.MainPage, Is.AssignableTo<HomePage>());
+            Assert.That(actual.Title, Is.EqualTo("Welcome to the Cleveland .NET SIG"));
+        }
+
+        [Test]
+        public void Test_test()
+        {
+            Assert.That(true, Is.True);
         }
     }
 }
