@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace DiabetesLog.iOS
+namespace Cleveland.DotNet.Sig.DiabetesLog.iOS
 {
     public class Application
     {

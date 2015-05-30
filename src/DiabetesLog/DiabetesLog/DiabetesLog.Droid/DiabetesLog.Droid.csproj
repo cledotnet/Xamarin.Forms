@@ -9,7 +9,7 @@
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DiabetesLog.Droid</RootNamespace>
+    <RootNamespace>Cleveland.DotNet.Sig.DiabetesLog.Android</RootNamespace>
     <AssemblyName>DiabetesLog.Droid</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>true</AndroidApplication>
@@ -92,7 +92,7 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Properties\AndroidManifest.xml" />
+    <None Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\drawable\Diabetes.png" />
     <AndroidResource Include="Resources\drawable\Meal.png" />
     <AndroidResource Include="Resources\drawable\Syringe.png" />

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using Cleveland.DotNet.Sig.DiabetesLog.Views;
 using Xamarin.Forms;
 
-namespace DiabetesLog
+namespace Cleveland.DotNet.Sig.DiabetesLog
 {
     public class App : Application
     {

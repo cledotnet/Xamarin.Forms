@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Cleveland.DotNet.Sig.DiabetesLog;
 using Foundation;
 using UIKit;
 
-namespace DiabetesLog.iOS
+namespace Cleveland.DotNet.Sig.DiabetesLog.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
     // User Interface of the application, as well as listening (and optionally responding) to 

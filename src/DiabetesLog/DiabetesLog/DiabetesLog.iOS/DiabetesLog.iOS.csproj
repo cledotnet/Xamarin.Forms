@@ -8,7 +8,7 @@
     <ProjectGuid>{15B09340-DB40-41CB-BF1A-B6E6D3439692}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DiabetesLog.iOS</RootNamespace>
+    <RootNamespace>Cleveland.DotNet.Sig.DiabetesLog.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>DiabetesLogiOS</AssemblyName>
     <NuGetPackageImportStamp>

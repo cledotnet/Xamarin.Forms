@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("DiabetesLog.Droid.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("Cleveland.DotNet.Sig.DiabetesLog.Android.Resource", IsApplication=true)]
 
-namespace DiabetesLog.Droid
+namespace Cleveland.DotNet.Sig.DiabetesLog.Android
 {
 	
 	

@@ -1,5 +1,5 @@
 ﻿<winPhone:FormsApplicationPage
-    x:Class="DiabetesLog.WinPhone.MainPage"
+    x:Class="Cleveland.DotNet.Sig.DiabetesLog.WinPhone.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"

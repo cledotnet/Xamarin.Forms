@@ -6,9 +6,9 @@ using System.Windows.Markup;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using DiabetesLog.WinPhone.Resources;
+using Cleveland.DotNet.Sig.DiabetesLog.WinPhone.Resources;
 
-namespace DiabetesLog.WinPhone
+namespace Cleveland.DotNet.Sig.DiabetesLog.WinPhone
 {
     public partial class App : Application
     {

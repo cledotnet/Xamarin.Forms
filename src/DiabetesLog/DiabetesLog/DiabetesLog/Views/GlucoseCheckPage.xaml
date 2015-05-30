@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+<views:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DiabetesLog.MealPage">
-	<Label Text="Document a meal." VerticalOptions="Center" HorizontalOptions="Center" />
+             xmlns:views="clr-namespace:Cleveland.DotNet.Sig.DiabetesLog.Views;assembly=DiabetesLog"
+             x:Class="Cleveland.DotNet.Sig.DiabetesLog.Views.GlucoseCheckPage">
+	<Label Text="Enter your glucose readings." VerticalOptions="Center" HorizontalOptions="Center" />
 
-  <BasePage.ToolbarItems>
+  <views:BasePage.ToolbarItems>
     <ToolbarItem Text="meter" Order="Primary" x:Name="GlucoseCheckItem">
       <ToolbarItem.Icon>
         <OnPlatform x:TypeArguments="FileImageSource" iOS="Diabetes-25.png" Android="Diabetes.png" WinPhone="Images/edit.png" />
@@ -20,8 +21,6 @@
         <OnPlatform x:TypeArguments="FileImageSource" iOS="Meal Filled-25.png" Android="Meal.png" WinPhone="Images/refresh.png" />
       </ToolbarItem.Icon>
     </ToolbarItem>
-    <ToolbarItem Text="explore" Order="Secondary" />
-    <ToolbarItem Text="discover" Order="Secondary" />
-    <ToolbarItem Text="evolve" Order="Secondary" />
-  </BasePage.ToolbarItems>
-</BasePage>
+  </views:BasePage.ToolbarItems>
+
+</views:BasePage>

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Cleveland.DotNet.Sig.DiabetesLog.Views;
 using Xamarin.Forms;
 
-namespace DiabetesLog
+namespace Cleveland.DotNet.Sig.DiabetesLog.Views
 {
-    public partial class MealPage : BasePage
+    public partial class InsulinDosePage : BasePage
     {
-        public MealPage()
+        public InsulinDosePage()
         {
             InitializeComponent();
             GlucoseCheckItem.Clicked += GlucoseCheckItem_Clicked;

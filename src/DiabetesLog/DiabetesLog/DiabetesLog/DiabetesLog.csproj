@@ -8,7 +8,7 @@
     <ProjectGuid>{12AF7272-2E81-4366-B5A0-9645CC6F5400}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DiabetesLog</RootNamespace>
+    <RootNamespace>Cleveland.DotNet.Sig.DiabetesLog</RootNamespace>
     <AssemblyName>DiabetesLog</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
@@ -36,19 +36,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="BasePage.cs" />
-    <Compile Include="InsulinDosePage.xaml.cs">
+    <Compile Include="Views\BasePage.cs" />
+    <Compile Include="Views\InsulinDosePage.xaml.cs">
       <DependentUpon>InsulinDosePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GlucoseCheckPage.xaml.cs">
+    <Compile Include="Views\GlucoseCheckPage.xaml.cs">
       <DependentUpon>GlucoseCheckPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HomePage.xaml.cs">
+    <Compile Include="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MealPage.xaml.cs">
+    <Compile Include="Views\MealPage.xaml.cs">
       <DependentUpon>MealPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\GlucoseCheck.cs" />
+    <Compile Include="Models\InsulinDose.cs" />
+    <Compile Include="Models\Meal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,28 +68,31 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HomePage.xaml">
+    <EmbeddedResource Include="Views\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="GlucoseCheckPage.xaml">
+    <EmbeddedResource Include="Views\GlucoseCheckPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="InsulinDosePage.xaml">
+    <EmbeddedResource Include="Views\InsulinDosePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MealPage.xaml">
+    <EmbeddedResource Include="Views\MealPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.1.3.3.6323\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.1.3.3.6323\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

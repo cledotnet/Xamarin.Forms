@@ -1,6 +1,6 @@
-﻿using DiabetesLog.WinPhone.Resources;
+﻿using Cleveland.DotNet.Sig.DiabetesLog.WinPhone.Resources;
 
-namespace DiabetesLog.WinPhone
+namespace Cleveland.DotNet.Sig.DiabetesLog.WinPhone
 {
     /// <summary>
     /// Provides access to string resources.
