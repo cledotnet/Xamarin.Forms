@@ -2,7 +2,7 @@
 
 namespace Cleveland.DotNet.Sig.DiabetesLog.Models
 {
-    public class Meal
+    public class Meal : Entity<Meal>
     {
         public DateTime Timestamp { get; set; }
         public string Name { get; set; }

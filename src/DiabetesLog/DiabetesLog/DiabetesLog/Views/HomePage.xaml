@@ -10,6 +10,7 @@
   <StackLayout>
     <Label Text="{Binding Path=Title}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
     <Label Text="{Binding Path=Introduction}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
+    <ListView></ListView>
   </StackLayout>
   
 </views:BasePage>
