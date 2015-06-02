@@ -9,5 +9,16 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.ViewModels
 {
     public class GlucoseCheckPageModel : EntityViewerViewModel<GlucoseCheck>
     {
+        private GlucoseCheck glucoseCheck;
+
+        public GlucoseCheckPageModel(GlucoseCheck entity)
+        {
+            base.InitializeProperties(entity);
+        }
+        
+        public GlucoseCheckPageModel()
+        {
+
+        }
     }
 }

@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+<views:EntityViewer xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:views="clr-namespace:Cleveland.DotNet.Sig.DiabetesLog.Views;assembly=DiabetesLog"
+             xmlns:views="clr-namespace:Cleveland.DotNet.Sig.DiabetesLog.Views.Entities;assembly=DiabetesLog"
              xmlns:vm="clr-namespace:Cleveland.DotNet.Sig.DiabetesLog.ViewModels;assembly=DiabetesLog"
-             x:TypeArguments="vm:InsulinDosePageModel"
-             x:Class="Cleveland.DotNet.Sig.DiabetesLog.Views.InsulinDosePage">
+             xmlns:m="clr-namespace:Cleveland.DotNet.Sig.DiabetesLog.Models;assembly=DiabetesLog"
+             x:TypeArguments="vm:InsulinDosePageModel,m:InsulinDose"
+             x:Class="Cleveland.DotNet.Sig.DiabetesLog.Views.Entities.InsulinDoseViewer">
   <StackLayout Orientation="Vertical">
     <Label Text="{Binding Path=Title}" FontAttributes="Bold"/>
     <Label Text="{Binding Path=Introduction}"/>
     <StackLayout Orientation="Horizontal">
       <Label Text="Timestamp: "/>
-      <DatePicker Date="{Binding Path=Dose.Timestamp}"/>
-      <TimePicker Time="{Binding Path=Dose.Timestamp}"/>
+      <DatePicker Date="{Binding Path=Entity.Timestamp}"/>
+      <TimePicker Time="{Binding Path=Entity.Timestamp}"/>
     </StackLayout>
     <StackLayout Orientation="Horizontal">
       <Label Text="Dose (IU): "/>
-      <Entry Text="{Binding Path=Dose.Insulin}" WidthRequest="100"/>
+      <Entry Text="{Binding Path=Entity.Insulin}" WidthRequest="100"/>
     </StackLayout>
   </StackLayout>
 
-</views:BasePage>
+</views:EntityViewer>

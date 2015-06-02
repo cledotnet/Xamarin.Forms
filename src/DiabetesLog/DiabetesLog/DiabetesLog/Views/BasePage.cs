@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Cleveland.DotNet.Sig.DiabetesLog.ViewModels;
+using Cleveland.DotNet.Sig.DiabetesLog.Views.Entities;
 using Xamarin.Forms;
 
 namespace Cleveland.DotNet.Sig.DiabetesLog.Views
@@ -31,17 +32,17 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Views
 
         private async void Meal_Clicked(object sender, EventArgs eventArgs)
         {
-            await this.Navigation.PushModalAsync(new NavigationPage(new MealPage()));
+            await this.Navigation.PushModalAsync(new NavigationPage(new MealViewer()));
         }
 
         private async void InsulinDose_Clicked(object sender, EventArgs eventArgs)
         {
-            await this.Navigation.PushModalAsync(new NavigationPage(new InsulinDosePage()));
+            await this.Navigation.PushModalAsync(new NavigationPage(new InsulinDoseViewer()));
         }
 
         private async void GlucoseCheck_Clicked(object sender, EventArgs eventArgs)
         {
-            await this.Navigation.PushModalAsync(new NavigationPage(new GlucoseCheckPage()));
+            await this.Navigation.PushModalAsync(new NavigationPage(new GlucoseCheckViewer()));
         }
 
         private void addToolbarItem(string text, string iOSIcon, string androidIcon, string winIcon, EventHandler onClick)
@@ -58,7 +59,5 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Views
                 ToolbarItems.Remove(previous);
             ToolbarItems.Insert(0, item);
         }
-
-        protected ViewModelType Model;
     }
 }

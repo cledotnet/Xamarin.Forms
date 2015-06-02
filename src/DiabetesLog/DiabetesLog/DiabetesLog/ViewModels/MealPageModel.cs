@@ -9,6 +9,5 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.ViewModels
 {
     public class MealPageModel : EntityViewerViewModel<Meal>
     {
-        public Meal Meal { get; set; }
     }
 }

@@ -1,11 +1,12 @@
 ﻿using System;
 using Cleveland.DotNet.Sig.DiabetesLog.ViewModels;
 using Cleveland.DotNet.Sig.DiabetesLog.Views;
+using Cleveland.DotNet.Sig.DiabetesLog.Views.Entities;
 using Xamarin.Forms;
 
 namespace Cleveland.DotNet.Sig.DiabetesLog.Models
 {
-    public class GlucoseCheck : Entity<GlucoseCheck, GlucoseCheckPage, GlucoseCheckPageModel>, Editable
+    public class GlucoseCheck : Entity<GlucoseCheck, GlucoseCheckViewer, GlucoseCheckPageModel>, Editable
     {
         public DateTime Timestamp { get; set; }
         public int Glucose { get; set; }
@@ -17,7 +18,7 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Models
 
         public Page CreateEditor()
         {
-            throw new NotImplementedException();
+            return new GlucoseCheckEditor(new GlucoseCheckPageModel(this));
         }
     }
 }

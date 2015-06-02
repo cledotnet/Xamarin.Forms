@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Cleveland.DotNet.Sig.DiabetesLog.Models;
+﻿using Cleveland.DotNet.Sig.DiabetesLog.Models;
 using Cleveland.DotNet.Sig.DiabetesLog.ViewModels;
-using Cleveland.DotNet.Sig.DiabetesLog.Views;
-using Xamarin.Forms;
 
-namespace Cleveland.DotNet.Sig.DiabetesLog.Views
+namespace Cleveland.DotNet.Sig.DiabetesLog.Views.Entities
 {
-    public partial class GlucoseCheckPage : EntityViewer<GlucoseCheckPageModel, GlucoseCheck>
+    public partial class GlucoseCheckEditor : EntityEditor<GlucoseCheckPageModel, GlucoseCheck>
     {
-        public GlucoseCheckPage()
+        public GlucoseCheckEditor() : this(new GlucoseCheckPageModel())
+        {
+        }
+
+        public GlucoseCheckEditor(GlucoseCheckPageModel model)
         {
             InitializeComponent();
+            InitializeModel(model);
         }
     }
 }
