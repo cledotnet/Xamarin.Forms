@@ -50,18 +50,22 @@
     <Compile Include="ViewModels\InsulinDosePageModel.cs" />
     <Compile Include="ViewModels\MealPageModel.cs" />
     <Compile Include="Views\BasePage.cs" />
-    <Compile Include="Views\EntityViewer.cs" />
-    <Compile Include="Views\InsulinDosePage.xaml.cs">
-      <DependentUpon>InsulinDosePage.xaml</DependentUpon>
+    <Compile Include="Views\Entities\EntityEditor.cs" />
+    <Compile Include="Views\Entities\EntityViewer.cs" />
+    <Compile Include="Views\Entities\GlucoseCheckEditor.xaml.cs">
+      <DependentUpon>GlucoseCheckEditor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\GlucoseCheckPage.xaml.cs">
-      <DependentUpon>GlucoseCheckPage.xaml</DependentUpon>
+    <Compile Include="Views\Entities\InsulinDoseViewer.xaml.cs">
+      <DependentUpon>InsulinDoseViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Entities\GlucoseCheckViewer.xaml.cs">
+      <DependentUpon>GlucoseCheckViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MealPage.xaml.cs">
-      <DependentUpon>MealPage.xaml</DependentUpon>
+    <Compile Include="Views\Entities\MealViewer.xaml.cs">
+      <DependentUpon>MealViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\GlucoseCheck.cs" />
     <Compile Include="Models\InsulinDose.cs" />
@@ -92,21 +96,27 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\GlucoseCheckPage.xaml">
+    <EmbeddedResource Include="Views\Entities\GlucoseCheckViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\InsulinDosePage.xaml">
+    <EmbeddedResource Include="Views\Entities\InsulinDoseViewer.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\MealPage.xaml">
+    <EmbeddedResource Include="Views\Entities\MealViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Entities\GlucoseCheckEditor.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
