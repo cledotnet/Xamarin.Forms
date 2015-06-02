@@ -16,6 +16,12 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Models
         where EntityType : Entity, new()
     {
         private readonly Repository _repository = DependencyService.Get<Repository>();
+        private string _text;
+
+        public Entity()
+        {
+            _text = ToString();
+        }
 
         public virtual void Save(string path)
         {
@@ -34,6 +40,12 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Models
                 else
                     throw new NotImplementedException("Indexed properties are not supported yet.");
             }
+        }
+
+        public virtual string Text
+        {
+            get { return _text; }
+            set { _text = value; }
         }
     }
 }

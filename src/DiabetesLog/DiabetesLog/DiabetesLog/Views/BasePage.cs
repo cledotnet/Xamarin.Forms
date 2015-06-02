@@ -8,9 +8,11 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Views
     public abstract class BasePage<ViewModelType> : ContentPage
         where ViewModelType : BaseViewModel, new()
     {
-        public BasePage()
+        public BasePage() : this(new ViewModelType()) { }
+
+        public BasePage(ViewModelType model)
         {
-            Model = new ViewModelType();
+            BindingContext = model;
             addToolbarItem("GlucoseCheck", "Diabetes-25.png", "Diabetes.png", "Images/edit.png", GlucoseCheck_Clicked);
             addToolbarItem("InsulinDose", "Syringe Filled-25.png", "Syringe.png", "Images/search.png", InsulinDose_Clicked);
             addToolbarItem("Meal", "Meal Filled-25.png", "Meal.png", "Images/refresh.png", Meal_Clicked);

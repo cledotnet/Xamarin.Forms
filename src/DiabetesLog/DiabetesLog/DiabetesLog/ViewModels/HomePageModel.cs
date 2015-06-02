@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,7 +34,29 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.ViewModels
             events.AddRange(FindAllEvents<GlucoseCheck>());
             events.AddRange(FindAllEvents<Meal>());
             events.AddRange(FindAllEvents<InsulinDose>());
+            events.AddRange(AddTestEvents());
             return events;
+        }
+
+        private IEnumerable<Listable> AddTestEvents()
+        {
+            var check = new GlucoseCheck()
+            {
+                Timestamp = DateTime.Now,
+                Glucose = 100,
+            };
+            var meal = new Meal()
+            {
+                Timestamp = DateTime.Now,
+                Name = "Dinner",
+                Carbohydrates = 120,
+            };
+            var dose = new InsulinDose()
+            {
+                Timestamp = DateTime.Now,
+                Insulin = 10,
+            };
+            return new Listable[] {check, meal, dose};
         }
 
         public IEnumerable<Listable> FindAllEvents<EntityType>()
@@ -41,7 +64,8 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.ViewModels
         {
             var events = new List<Listable>();
             var repository = DependencyService.Get<Repository>();
-            foreach (var file in repository.GetFiles(repository.DefaultPath))
+            var folder = $"{typeof (EntityType).Name.ToLower()}";
+            foreach (var file in repository.GetFiles(Path.Combine(repository.DefaultPath, folder)))
             {
                 var entity = new EntityType();
                 entity.Load(file);

@@ -1,16 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <views:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:views="clr-namespace:Cleveland.DotNet.Sig.DiabetesLog.Views;assembly=DiabetesLog"
              xmlns:vm="clr-namespace:Cleveland.DotNet.Sig.DiabetesLog.ViewModels;assembly=DiabetesLog"
              x:TypeArguments="vm:HomePageModel"
-             BindingContext="{x:Reference Model}"
              x:Class="Cleveland.DotNet.Sig.DiabetesLog.Views.HomePage"
                 >
   <StackLayout>
     <Label Text="{Binding Path=Title}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
     <Label Text="{Binding Path=Introduction}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
-    <ListView></ListView>
+    <ListView ItemsSource="{Binding Path=Events}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <TextCell Text="{Binding Path=Text}"></TextCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
   </StackLayout>
   
 </views:BasePage>

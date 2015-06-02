@@ -2,6 +2,6 @@
 {
     public interface Listable
     {
-
+        string Text { get; set; }
     }
 }

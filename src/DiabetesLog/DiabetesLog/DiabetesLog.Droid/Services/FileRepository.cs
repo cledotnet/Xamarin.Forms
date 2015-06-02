@@ -37,9 +37,11 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Android.Services
         public IEnumerable<string> GetFiles(string path)
         {
             var folder = new DirectoryInfo(path);
+            if (!folder.Exists)
+                folder.Create();
             return folder.GetFiles().Select(file => file.FullName);
         }
 
-        public string DefaultPath {  get { return Environment.GetFolderPath(Environment.SpecialFolder.Personal); } }
+        public string DefaultPath { get { return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "objects"); } }
     }
 }
