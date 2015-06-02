@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<entities:EntityViewer xmlns="http://xamarin.com/schemas/2014/forms"
+<views:EntityViewer xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:Cleveland.DotNet.Sig.DiabetesLog.Views.Entities;assembly=DiabetesLog"
              xmlns:vm="clr-namespace:Cleveland.DotNet.Sig.DiabetesLog.ViewModels;assembly=DiabetesLog"
              xmlns:m="clr-namespace:Cleveland.DotNet.Sig.DiabetesLog.Models;assembly=DiabetesLog"
-             xmlns:entities="clr-namespace:Cleveland.DotNet.Sig.DiabetesLog.Views.Entities;assembly=DiabetesLog"
              x:TypeArguments="vm:GlucoseCheckPageModel,m:GlucoseCheck"
              x:Class="Cleveland.DotNet.Sig.DiabetesLog.Views.Entities.GlucoseCheckViewer">
   <StackLayout Orientation="Vertical">
@@ -12,13 +11,12 @@
     <Label Text="{Binding Path=Introduction}"/>
     <StackLayout Orientation="Horizontal">
       <Label Text="Timestamp: "/>
-      <DatePicker Date="{Binding Path=Check.Timestamp}"/>
-      <TimePicker Time="{Binding Path=Check.Timestamp}"/>
+      <Label Text="{Binding Path=Entity.Timestamp}"/>
     </StackLayout>
     <StackLayout Orientation="Horizontal">
       <Label Text="Glucose (mg/dl): "/>
-      <Entry Text="{Binding Path=Check.Glucose}" WidthRequest="100"/>
+      <Entry Text="{Binding Path=Entity.Glucose}" WidthRequest="100"/>
     </StackLayout>
   </StackLayout>
 
-</entities:EntityViewer>
+</views:EntityViewer>

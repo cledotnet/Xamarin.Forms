@@ -14,5 +14,8 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Models
         {
             return $"{Timestamp:yyyy-MM-dd HH:mm:ss} {Insulin} IU";
         }
+
+        public override string Identifier => $"{Timestamp:yyyy-MM-dd HHmmss}";
+
     }
 }

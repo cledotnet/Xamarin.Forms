@@ -8,8 +8,30 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Models
 {
     public class GlucoseCheck : Entity<GlucoseCheck, GlucoseCheckViewer, GlucoseCheckPageModel>, Editable
     {
-        public DateTime Timestamp { get; set; }
-        public int Glucose { get; set; }
+        private DateTime _timestamp = DateTime.Now;
+        private int _glucose = 0;
+
+        public DateTime Timestamp
+        {
+            get { return _timestamp; }
+            set
+            {
+                if (_timestamp == value) return;
+                _timestamp = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public int Glucose
+        {
+            get { return _glucose; }
+            set
+            {
+                if (_glucose == value) return;
+                _glucose = value;
+                OnPropertyChanged();
+            }
+        }
 
         public override string ToString()
         {
@@ -20,5 +42,9 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Models
         {
             return new GlucoseCheckEditor(new GlucoseCheckPageModel(this));
         }
+
+        public bool IsChanged { get { return _isChanged;} }
+
+        public override string Identifier => $"{Timestamp:yyyy-MM-dd HHmmss}";
     }
 }

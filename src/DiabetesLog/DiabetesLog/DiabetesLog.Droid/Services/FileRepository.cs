@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using Cleveland.DotNet.Sig.DiabetesLog.Android.Services;
 using Cleveland.DotNet.Sig.DiabetesLog.Models;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 using Environment = System.Environment;
 
@@ -40,6 +41,62 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Android.Services
             if (!folder.Exists)
                 folder.Create();
             return folder.GetFiles().Select(file => file.FullName);
+        }
+
+        public string GetPath(Persistable entity)
+        {
+            return GetPath(entity?.GetType());
+        }
+
+        public Persistable Get<EntityType>(string identifier)
+            where EntityType : Persistable, new()
+        {
+            var filespec = BuildFilespec(typeof(EntityType), identifier);
+            var json = File.ReadAllText(filespec);
+            return JsonConvert.DeserializeObject<EntityType>(json);
+        }
+
+        public string Save(Persistable entity)
+        {
+            var filespec = BuildFilespec(entity);
+            var contents = JsonConvert.SerializeObject(entity);
+            SaveText(filespec, contents);
+            return entity.Identifier;
+        }
+
+        private string BuildFilespec(Persistable entity)
+        {
+            return BuildFilespec(entity.GetType(), entity.Identifier);
+        }
+
+        private string BuildFilespec(Type type, string identifier)
+        {
+            var path = GetPath(type);
+            var name = $"{identifier}.json";
+            var filespec = Path.Combine(path, name);
+            return filespec;
+        }
+
+        private string GetPath(Type type)
+        {
+            if (type != null)
+                return Path.Combine(DefaultPath, type.Name.ToLower());
+            else 
+                return DefaultPath;
+        }
+
+        public IEnumerable<EntityType> Get<EntityType>(Func<EntityType, bool> filter = null) where EntityType : Persistable, new()
+        {
+            var path = GetPath(typeof (EntityType));
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
+            foreach (var file in Directory.GetFiles(path))
+            {
+                var entity = new EntityType();
+                entity.Load(file);
+                yield return entity;
+            }
         }
 
         public string DefaultPath { get { return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "objects"); } }

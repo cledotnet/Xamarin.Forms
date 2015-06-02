@@ -64,14 +64,7 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.ViewModels
         {
             var events = new List<Listable>();
             var repository = DependencyService.Get<Repository>();
-            var folder = $"{typeof (EntityType).Name.ToLower()}";
-            foreach (var file in repository.GetFiles(Path.Combine(repository.DefaultPath, folder)))
-            {
-                var entity = new EntityType();
-                entity.Load(file);
-                events.Add(entity);
-            }
-            return events;
+            return (IEnumerable<Listable>) repository.Get<EntityType>();
         }
 
         public ICollection<Listable> Events { get; set; }

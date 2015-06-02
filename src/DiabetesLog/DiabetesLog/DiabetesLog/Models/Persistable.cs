@@ -10,5 +10,6 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Models
     {
         void Save(string path);
         void Load(string path);
+        string Identifier { get; }
     }
 }

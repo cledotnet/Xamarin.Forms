@@ -10,5 +10,6 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Models
     public interface Editable
     {
         Page CreateEditor();
+        bool IsChanged { get; }
     }
 }

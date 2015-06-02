@@ -14,5 +14,12 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Models
         void SaveText(string filespec, string contents);
         string LoadText(string filespec);
         IEnumerable<string> GetFiles(string path);
+
+        string GetPath(Persistable entity);
+
+        Persistable Get<EntityType>(string identifier) where EntityType : Persistable, new();
+        string Save(Persistable entity);
+
+        IEnumerable<EntityType> Get<EntityType>(Func<EntityType, bool> filter = null) where EntityType : Persistable, new();
     }
 }
