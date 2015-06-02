@@ -12,11 +12,16 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Views
 
         public BasePage(ViewModelType model)
         {
-            BindingContext = model;
+            InitializeModel(model);
             addToolbarItem("GlucoseCheck", "Diabetes-25.png", "Diabetes.png", "Images/edit.png", GlucoseCheck_Clicked);
             addToolbarItem("InsulinDose", "Syringe Filled-25.png", "Syringe.png", "Images/search.png", InsulinDose_Clicked);
             addToolbarItem("Meal", "Meal Filled-25.png", "Meal.png", "Images/refresh.png", Meal_Clicked);
             addToolbarItem("Home", "Diabetes Monitor.png", "Monitor.png", "Images/edit.png", Home_Clicked);
+        }
+
+        public virtual void InitializeModel(ViewModelType model)
+        {
+            BindingContext = model;
         }
 
         private async void Home_Clicked(object sender, EventArgs eventArgs)

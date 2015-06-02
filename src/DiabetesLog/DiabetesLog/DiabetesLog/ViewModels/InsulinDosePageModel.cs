@@ -7,8 +7,9 @@ using Cleveland.DotNet.Sig.DiabetesLog.Models;
 
 namespace Cleveland.DotNet.Sig.DiabetesLog.ViewModels
 {
-    public class InsulinDosePageModel : BaseViewModel
+    public class InsulinDosePageModel : EntityViewerViewModel<InsulinDose>
     {
         public InsulinDose Dose { get; set; }
+
     }
 }

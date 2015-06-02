@@ -1,8 +1,10 @@
 ﻿using System;
+using Cleveland.DotNet.Sig.DiabetesLog.ViewModels;
+using Cleveland.DotNet.Sig.DiabetesLog.Views;
 
 namespace Cleveland.DotNet.Sig.DiabetesLog.Models
 {
-    public class Meal : Entity<Meal>
+    public class Meal : Entity<Meal, MealPage, MealPageModel>
     {
         public DateTime Timestamp { get; set; }
         public string Name { get; set; }

@@ -15,7 +15,7 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.ViewModels
 {
     public class HomePageModel : BaseViewModel
     {
-        protected override void InitializeProperties()
+        public override void InitializeProperties()
         {
             Title = "Welcome to the Cleveland .NET SIG";
             OnPropertyChanged(nameof(Title));

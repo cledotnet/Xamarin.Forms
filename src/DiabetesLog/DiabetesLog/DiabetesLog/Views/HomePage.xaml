@@ -10,7 +10,7 @@
   <StackLayout>
     <Label Text="{Binding Path=Title}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
     <Label Text="{Binding Path=Introduction}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
-    <ListView ItemsSource="{Binding Path=Events}">
+    <ListView ItemsSource="{Binding Path=Events}" ItemTapped="ListView_OnItemTapped">
       <ListView.ItemTemplate>
         <DataTemplate>
           <TextCell Text="{Binding Path=Text}"></TextCell>

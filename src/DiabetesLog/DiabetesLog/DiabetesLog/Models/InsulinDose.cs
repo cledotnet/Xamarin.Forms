@@ -1,8 +1,10 @@
 ﻿using System;
+using Cleveland.DotNet.Sig.DiabetesLog.ViewModels;
+using Cleveland.DotNet.Sig.DiabetesLog.Views;
 
 namespace Cleveland.DotNet.Sig.DiabetesLog.Models
 {
-    public class InsulinDose : Entity<InsulinDose>
+    public class InsulinDose : Entity<InsulinDose, InsulinDosePage, InsulinDosePageModel>
     {
         public DateTime Timestamp { get; set; }
         public int Insulin { get; set; }

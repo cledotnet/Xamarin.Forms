@@ -16,7 +16,7 @@
     </StackLayout>
     <StackLayout Orientation="Horizontal">
       <Label Text="Dose (IU): "/>
-      <Entry Text="{Binding Path=Dose.Insulin}"/>
+      <Entry Text="{Binding Path=Dose.Insulin}" WidthRequest="100"/>
     </StackLayout>
   </StackLayout>
 

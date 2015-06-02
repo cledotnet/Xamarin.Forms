@@ -7,8 +7,7 @@ using Cleveland.DotNet.Sig.DiabetesLog.Models;
 
 namespace Cleveland.DotNet.Sig.DiabetesLog.ViewModels
 {
-    public class GlucoseCheckPageModel : BaseViewModel
+    public class GlucoseCheckPageModel : EntityViewerViewModel<GlucoseCheck>
     {
-        public GlucoseCheck Check { get; set; }
     }
 }

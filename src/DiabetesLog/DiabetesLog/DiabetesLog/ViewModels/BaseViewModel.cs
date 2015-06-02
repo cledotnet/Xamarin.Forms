@@ -16,7 +16,7 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.ViewModels
             InitializeProperties();
         }
 
-        protected virtual void InitializeProperties()
+        public virtual void InitializeProperties()
         {
             Title = this.GetType().Name;
         }

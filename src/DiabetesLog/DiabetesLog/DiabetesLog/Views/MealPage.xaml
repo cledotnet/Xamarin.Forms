@@ -16,11 +16,11 @@
     </StackLayout>
     <StackLayout Orientation="Horizontal">
       <Label Text="Name: "/>
-      <Entry Text="{Binding Path=Meal.Name}"/>
+      <Entry Text="{Binding Path=Meal.Name}" WidthRequest="200"/>
     </StackLayout>
     <StackLayout Orientation="Horizontal">
       <Label Text="Carbohydrates: "/>
-      <Entry Text="{Binding Path=Meal.Carbohydrates}"/>
+      <Entry Text="{Binding Path=Meal.Carbohydrates}" WidthRequest="100"/>
     </StackLayout>
   </StackLayout>
 

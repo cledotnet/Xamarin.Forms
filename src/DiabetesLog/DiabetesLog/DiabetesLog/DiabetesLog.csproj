@@ -36,17 +36,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Models\Editable.cs" />
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\Persistable.cs" />
     <Compile Include="Models\Repository.cs" />
+    <Compile Include="Models\Viewable.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\EntityViewerViewModel.cs" />
     <Compile Include="ViewModels\GlucoseCheckPageModel.cs" />
     <Compile Include="ViewModels\HomePageModel.cs" />
     <Compile Include="Models\Listable.cs" />
     <Compile Include="ViewModels\InsulinDosePageModel.cs" />
     <Compile Include="ViewModels\MealPageModel.cs" />
     <Compile Include="Views\BasePage.cs" />
+    <Compile Include="Views\EntityViewer.cs" />
     <Compile Include="Views\InsulinDosePage.xaml.cs">
       <DependentUpon>InsulinDosePage.xaml</DependentUpon>
     </Compile>
