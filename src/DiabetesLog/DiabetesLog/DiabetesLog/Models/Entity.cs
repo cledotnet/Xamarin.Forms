@@ -30,23 +30,9 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Models
             _text = ToString();
         }
 
-        public virtual void Save(string path)
+        public string Save()
         {
-            _repository.Save(this);
-        }
-
-        public virtual void Load(string path)
-        {
-            var json = _repository.LoadText(path);
-            var instance = JsonConvert.DeserializeObject<EntityType>(json);
-            foreach (var property in typeof(EntityType).GetRuntimeProperties())
-            {
-                var indices = property.GetIndexParameters();
-                if (indices.Length == 0 && property.CanWrite && property.CanRead)
-                    property.SetValue(this, property.GetValue(instance));
-                else
-                    throw new NotImplementedException("Indexed properties are not supported yet.");
-            }
+            return _repository.Save(this);
         }
 
         public abstract string Identifier { get; }

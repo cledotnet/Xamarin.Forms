@@ -25,35 +25,23 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Android.Services
     {
         public void SaveText(string filespec, string contents)
         {
-            var path = Path.Combine(DefaultPath, filespec);
+            var path = VerifyPath(filespec);
             File.WriteAllText(path, contents);
         }
 
-        public string LoadText(string filespec)
+        private string VerifyPath(string filespec)
         {
-            var path = Path.Combine(DefaultPath, filespec);
-            return File.ReadAllText(path);
-        }
+            var file = new FileInfo(filespec);
+            if (file.Directory == null)
+            {
+                file = new FileInfo(Path.Combine(DefaultPath, filespec));
+            }
 
-        public IEnumerable<string> GetFiles(string path)
-        {
-            var folder = new DirectoryInfo(path);
-            if (!folder.Exists)
-                folder.Create();
-            return folder.GetFiles().Select(file => file.FullName);
-        }
-
-        public string GetPath(Persistable entity)
-        {
-            return GetPath(entity?.GetType());
-        }
-
-        public Persistable Get<EntityType>(string identifier)
-            where EntityType : Persistable, new()
-        {
-            var filespec = BuildFilespec(typeof(EntityType), identifier);
-            var json = File.ReadAllText(filespec);
-            return JsonConvert.DeserializeObject<EntityType>(json);
+            var folder = file.DirectoryName ?? Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            if (!Directory.Exists(folder))
+                Directory.CreateDirectory(folder);
+            var path = Path.Combine(folder, file.Name);
+            return path;
         }
 
         public string Save(Persistable entity)
@@ -94,7 +82,15 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Android.Services
             foreach (var file in Directory.GetFiles(path))
             {
                 var entity = new EntityType();
-                entity.Load(file);
+                var json = File.ReadAllText(file);
+                try
+                {
+                    entity = JsonConvert.DeserializeObject<EntityType>(json);
+                }
+                catch
+                {
+                    // TODO: Handle exceptions
+                }
                 yield return entity;
             }
         }

@@ -7,8 +7,8 @@
     <ProjectGuid>{5F215784-A6B1-4DA6-90E5-889C0B7D342A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tests</RootNamespace>
-    <AssemblyName>Tests</AssemblyName>
+    <RootNamespace>PortableTests</RootNamespace>
+    <AssemblyName>PortableTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -50,7 +50,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DiabetesLog\DiabetesLog\DiabetesLog.csproj">
+    <ProjectReference Include="..\..\DiabetesLog\DiabetesLog\DiabetesLog.csproj">
       <Project>{12af7272-2e81-4366-b5a0-9645cc6f5400}</Project>
       <Name>DiabetesLog</Name>
     </ProjectReference>
