@@ -1,21 +1,35 @@
 ﻿using System;
 using Cleveland.DotNet.Sig.DiabetesLog.ViewModels;
-using Cleveland.DotNet.Sig.DiabetesLog.Views;
 using Cleveland.DotNet.Sig.DiabetesLog.Views.Entities;
+using Xamarin.Forms;
 
 namespace Cleveland.DotNet.Sig.DiabetesLog.Models
 {
-    public class InsulinDose : Entity<InsulinDose, InsulinDoseViewer, InsulinDosePageModel>
-    {
-        public DateTime Timestamp { get; set; }
-        public int Insulin { get; set; }
+	public class InsulinDose : DatedEvent<InsulinDose, InsulinDoseViewer, InsulinDosePageModel>, Editable
+	{
+		private int _insulin;
 
-        public override string ToString()
-        {
-			return string.Format("{0} {1} IU", Identifier, Insulin);
-        }
+		public int Insulin
+		{
+			get { return _insulin; }
+			set
+			{
+				if (value == _insulin) return;
+				_insulin = value;
+				OnPropertyChanged();
+			}
+		}
 
-		public override string Identifier { get { return string.Format("{0:yyyy-MM-dd HHmmss}", Timestamp); } }
+		public override string ToString()
+		{
+			return string.Format("Insulin: {0} {1} IU", Identifier, Insulin);
+		}
 
-    }
+		public override Page CreateEditor()
+		{
+			return new InsulinDoseEditor(new InsulinDosePageModel(this));
+		}
+
+		public override bool IsChanged { get { return _isChanged; } }
+	}
 }

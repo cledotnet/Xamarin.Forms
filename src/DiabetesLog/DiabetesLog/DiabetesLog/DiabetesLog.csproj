@@ -39,12 +39,14 @@
     <Compile Include="Models\Cloneable.cs" />
     <Compile Include="Models\Editable.cs" />
     <Compile Include="Models\Entity.cs" />
+    <Compile Include="Models\DatedEvent.cs" />
     <Compile Include="Models\Persistable.cs" />
     <Compile Include="Models\Repository.cs" />
     <Compile Include="Models\Viewable.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\EntityViewerViewModel.cs" />
+    <Compile Include="ViewModels\EntityEditorViewModel.cs" />
     <Compile Include="ViewModels\GlucoseCheckPageModel.cs" />
     <Compile Include="ViewModels\HomePageModel.cs" />
     <Compile Include="Models\Listable.cs" />
@@ -53,6 +55,12 @@
     <Compile Include="Views\BasePage.cs" />
     <Compile Include="Views\Entities\EntityEditor.cs" />
     <Compile Include="Views\Entities\EntityViewer.cs" />
+    <Compile Include="Views\Entities\MealEditor.xaml.cs">
+      <DependentUpon>MealEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Entities\InsulinDoseEditor.xaml.cs">
+      <DependentUpon>InsulinDoseEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Entities\GlucoseCheckEditor.xaml.cs">
       <DependentUpon>GlucoseCheckEditor.xaml</DependentUpon>
     </Compile>
@@ -113,6 +121,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Entities\GlucoseCheckEditor.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Entities\InsulinDoseEditor.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Entities\MealEditor.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

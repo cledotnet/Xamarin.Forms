@@ -2,21 +2,25 @@
 using Cleveland.DotNet.Sig.DiabetesLog.ViewModels;
 using Cleveland.DotNet.Sig.DiabetesLog.Views;
 using Cleveland.DotNet.Sig.DiabetesLog.Views.Entities;
+using Xamarin.Forms;
 
 namespace Cleveland.DotNet.Sig.DiabetesLog.Models
 {
-    public class Meal : Entity<Meal, MealViewer, MealPageModel>
-    {
-        public DateTime Timestamp { get; set; }
-        public string Name { get; set; }
-        public int Carbohydrates { get; set; }
+	public class Meal : DatedEvent<Meal, MealViewer, MealPageModel>, Editable
+	{
+		public string Name { get; set; }
+		public int Carbohydrates { get; set; }
 
-        public override string ToString()
-        {
-			return string.Format("{0} {1} carbs for {2}", Identifier, Carbohydrates, Name);
-        }
+		public override string ToString()
+		{
+			return string.Format("{2}: {0} {1} carbs", Identifier, Carbohydrates, Name);
+		}
 
-		public override string Identifier { get { return string.Format("{0:yyyy-MM-dd HHmmss}", Timestamp); } }
+		public override Page CreateEditor()
+		{
+			return new MealEditor(new MealPageModel(this));
+		}
 
-    }
+		public override bool IsChanged { get { return _isChanged; } }
+	}
 }

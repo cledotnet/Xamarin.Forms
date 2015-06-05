@@ -7,7 +7,9 @@ using Cleveland.DotNet.Sig.DiabetesLog.Models;
 
 namespace Cleveland.DotNet.Sig.DiabetesLog.ViewModels
 {
-    public class MealPageModel : EntityViewerViewModel<Meal>
-    {
-    }
+	public class MealPageModel : EntityEditorViewModel<Meal>
+	{
+		public MealPageModel() : base() { }
+		public MealPageModel(Meal entity) : base(entity) { }
+	}
 }

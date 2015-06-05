@@ -7,31 +7,9 @@ using Cleveland.DotNet.Sig.DiabetesLog.Models;
 
 namespace Cleveland.DotNet.Sig.DiabetesLog.ViewModels
 {
-	public class GlucoseCheckPageModel : EntityViewerViewModel<GlucoseCheck>
+	public class GlucoseCheckPageModel : EntityEditorViewModel<GlucoseCheck>
 	{
-		private GlucoseCheck glucoseCheck;
-		private string _id;
-
-		public GlucoseCheckPageModel(GlucoseCheck entity)
-		{
-			InitializeProperties(entity);
-			Id = entity.Identifier;
-		}
-		
-		public GlucoseCheckPageModel()
-		{
-
-		}
-
-		public string Id
-		{
-			get { return _id; }
-			set
-			{
-				if (value == _id) return;
-				_id = value;
-				OnPropertyChanged();
-			}
-		}
+		public GlucoseCheckPageModel() : base() { }
+		public GlucoseCheckPageModel(GlucoseCheck glucoseCheck) : base(glucoseCheck) { }
 	}
 }
