@@ -9,27 +9,52 @@ using Cleveland.DotNet.Sig.DiabetesLog.Annotations;
 
 namespace Cleveland.DotNet.Sig.DiabetesLog.ViewModels
 {
-    public abstract class BaseViewModel : INotifyPropertyChanged
-    {
-        public BaseViewModel()
-        {
-            InitializeProperties();
-        }
+	public abstract class BaseViewModel : INotifyPropertyChanged
+	{
+		private string _title;
+		private string _introduction;
 
-        public virtual void InitializeProperties()
-        {
-            Title = this.GetType().Name;
-        }
+		public BaseViewModel()
+		{
+			InitializeProperties();
+		}
 
-        public string Title { get; set; }
-        public string Introduction { get; set; }
+		public virtual void InitializeProperties()
+		{
+			Title = this.GetType().Name;
+		}
 
-        public event PropertyChangedEventHandler PropertyChanged;
+		public string Title
+		{
+			get { return _title; }
+			set
+			{
+				if (_title == value) return;
+				_title = value;
+				OnPropertyChanged();
+			}
+		}
 
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-    }
+		public string Introduction
+		{
+			get { return _introduction; }
+			set
+			{
+				if (value == _introduction) return;
+				_introduction = value;
+				OnPropertyChanged();
+			}
+		}
+
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		[NotifyPropertyChangedInvocator]
+		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+		{
+			if (PropertyChanged != null)
+				PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+
+		public abstract void Reset();
+	}
 }

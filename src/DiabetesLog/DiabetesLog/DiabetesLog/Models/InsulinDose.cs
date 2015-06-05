@@ -12,10 +12,10 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Models
 
         public override string ToString()
         {
-            return $"{Timestamp:yyyy-MM-dd HH:mm:ss} {Insulin} IU";
+			return string.Format("{0} {1} IU", Identifier, Insulin);
         }
 
-        public override string Identifier => $"{Timestamp:yyyy-MM-dd HHmmss}";
+		public override string Identifier { get { return string.Format("{0:yyyy-MM-dd HHmmss}", Timestamp); } }
 
     }
 }

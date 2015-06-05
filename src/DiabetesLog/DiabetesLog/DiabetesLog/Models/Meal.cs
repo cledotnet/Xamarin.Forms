@@ -13,10 +13,10 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Models
 
         public override string ToString()
         {
-            return $"{Timestamp:yyyy-MM-dd HH:mm:ss} {Carbohydrates} carbs for {Name}";
+			return string.Format("{0} {1} carbs for {2}", Identifier, Carbohydrates, Name);
         }
 
-        public override string Identifier => $"{Timestamp:yyyy-MM-dd HHmmss}";
+		public override string Identifier { get { return string.Format("{0:yyyy-MM-dd HHmmss}", Timestamp); } }
 
     }
 }

@@ -8,15 +8,34 @@ using Xamarin.Forms;
 
 namespace Cleveland.DotNet.Sig.DiabetesLog.ViewModels
 {
-    public class EntityViewerViewModel<EntityType> : BaseViewModel
-        where EntityType : Entity, new()
-    {
-        public EntityType Entity { get; set; }
+	public class EntityViewerViewModel<EntityType> : BaseViewModel
+		where EntityType : class, Entity, Cloneable<EntityType>, new()
+	{
+		private EntityType _entity;
 
-        internal void InitializeProperties(EntityType entity)
-        {
-            Entity = entity;
-            base.InitializeProperties();
-        }
-    }
+		public EntityType Entity
+		{
+			get { return _entity; }
+			set
+			{
+				if (Equals(value, _entity)) return;
+				_entity = value;
+				OnPropertyChanged();
+			}
+		}
+
+		internal void InitializeProperties(EntityType entity)
+		{
+			Original = entity.Clone();
+			Entity = entity;
+			base.InitializeProperties();
+		}
+
+		public override void Reset()
+		{
+			Entity = Original.Clone();
+		}
+
+		public EntityType Original { get; private set; }
+	}
 }

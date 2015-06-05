@@ -25,7 +25,7 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Views
             BindingContext = model;
         }
 
-        public ViewModelType Model => BindingContext as ViewModelType;
+		public ViewModelType Model { get { return BindingContext as ViewModelType; } }
 
         private async void Home_Clicked(object sender, EventArgs eventArgs)
         {

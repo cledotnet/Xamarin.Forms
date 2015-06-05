@@ -21,19 +21,12 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Views.Entities
 
         public void Reset_OnClicked(object sender, EventArgs args)
         {
-            // TODO: Reset the model to its initial state
+            Reset();
         }
 
         public void Save_OnClicked(object sender, EventArgs args)
         {
-            var entity = Model?.Entity as Persistable;
-            if (entity != default(Persistable))
-            {
-                var repository = DependencyService.Get<Repository>();
-                repository.Save(entity);
-                InitializeModel(Model);
-            }
-
+            Save(Model.Original);
         }
     }
 }

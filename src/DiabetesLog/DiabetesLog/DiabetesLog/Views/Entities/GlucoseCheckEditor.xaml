@@ -11,8 +11,8 @@
     <Label Text="{Binding Path=Introduction}"/>
     <StackLayout Orientation="Horizontal">
       <Label Text="Timestamp: "/>
-      <DatePicker Date="{Binding Path=Entity.Timestamp}"/>
-      <TimePicker Time="{Binding Path=Entity.Timestamp}"/>
+      <DatePicker Date="{Binding Path=Entity.Date}"/>
+      <TimePicker Time="{Binding Path=Entity.Time}"/>
     </StackLayout>
     <StackLayout Orientation="Horizontal">
       <Label Text="Glucose (mg/dl): "/>

@@ -32,7 +32,7 @@ namespace AndroidTests
             var check = new GlucoseCheck()
             {
                 Glucose = 100,
-                Timestamp = new DateTime(2015, 01, 01, 12, 30, 00)
+                Date = new DateTime(2015, 01, 01, 12, 30, 00)
             };
             
             // act
@@ -40,7 +40,7 @@ namespace AndroidTests
 
             // assert
             Assert.That(identifier, Is.EqualTo(check.Identifier));
-            var file = new FileInfo(Path.Combine(_repository.DefaultPath, "objects", check.GetType().Name.ToLower(), $"{identifier}.json"));
+            var file = new FileInfo(Path.Combine(_repository.DefaultPath, "objects", check.GetType().Name.ToLower(), string.Format("{0}.json", identifier)));
             Assert.That(file.Exists, Is.True);
         }
 
