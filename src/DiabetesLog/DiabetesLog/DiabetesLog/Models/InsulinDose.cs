@@ -1,14 +1,17 @@
 ﻿using System;
 using Cleveland.DotNet.Sig.DiabetesLog.ViewModels;
 using Cleveland.DotNet.Sig.DiabetesLog.Views.Entities;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 
 namespace Cleveland.DotNet.Sig.DiabetesLog.Models
 {
+	[JsonObject(MemberSerialization.OptIn)]
 	public class InsulinDose : DatedEvent<InsulinDose, InsulinDoseViewer, InsulinDosePageModel>, Editable
 	{
 		private int _insulin;
 
+		[JsonProperty]
 		public int Insulin
 		{
 			get { return _insulin; }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using Cleveland.DotNet.Sig.DiabetesLog.Models;
 using Cleveland.DotNet.Sig.DiabetesLog.ViewModels;
@@ -53,6 +54,7 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Views
 
         private void addToolbarItem(string text, string iOSIcon, string androidIcon, string winIcon, EventHandler onClick)
         {
+	        Debug.WriteLine("addToolbarItem()");
             var item = new ToolbarItem();
             item.Text = text;
             item.Order = ToolbarItemOrder.Primary;

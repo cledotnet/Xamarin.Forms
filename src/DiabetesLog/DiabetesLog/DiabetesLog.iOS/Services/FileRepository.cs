@@ -3,14 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Cleveland.DotNet.Sig.DiabetesLog.Android.Services;
+using Cleveland.DotNet.Sig.DiabetesLog.iOS.Services;
 using Cleveland.DotNet.Sig.DiabetesLog.Models;
 using Newtonsoft.Json;
 using Xamarin.Forms;
@@ -19,7 +12,7 @@ using Environment = System.Environment;
 // For more information, see http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/files/
 //
 [assembly: Dependency(typeof(FileRepository))]
-namespace Cleveland.DotNet.Sig.DiabetesLog.Android.Services
+namespace Cleveland.DotNet.Sig.DiabetesLog.iOS.Services
 {
 	public class FileRepository : Repository
 	{

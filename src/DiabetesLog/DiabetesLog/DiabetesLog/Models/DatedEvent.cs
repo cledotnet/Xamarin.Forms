@@ -2,17 +2,19 @@
 using Cleveland.DotNet.Sig.DiabetesLog.ViewModels;
 using Cleveland.DotNet.Sig.DiabetesLog.Views;
 using Cleveland.DotNet.Sig.DiabetesLog.Views.Entities;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 
 namespace Cleveland.DotNet.Sig.DiabetesLog.Models
 {
+	[JsonObject(MemberSerialization.OptIn)]
 	public abstract class DatedEvent<EntityType, ViewType, ViewModelType> : Entity<EntityType, ViewType, ViewModelType>, Editable 
 		where EntityType : class, Entity, Cloneable<EntityType>, new() 
 		where ViewType : BasePage<ViewModelType>, new() 
 		where ViewModelType : EntityViewerViewModel<EntityType>, new()
 	{
-		private DateTime _date = DateTime.Now;
-		private TimeSpan _time;
+		private DateTime _date = DateTime.Now.Date;
+		private TimeSpan _time = DateTime.Now.TimeOfDay;
 
 		public DateTime Date
 		{
@@ -36,6 +38,7 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Models
 			}
 		}
 
+		[JsonProperty]
 		public DateTime Timestamp
 		{
 			get { return Date + Time; }

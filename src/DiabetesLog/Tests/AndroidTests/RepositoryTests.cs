@@ -26,7 +26,7 @@ namespace AndroidTests
         public void Tear() { }
 
         [Test]
-        public void Save()
+        public void SaveGlucoseCheck()
         {
             // arrange
             var check = new GlucoseCheck()
@@ -34,33 +34,52 @@ namespace AndroidTests
                 Glucose = 100,
                 Date = new DateTime(2015, 01, 01, 12, 30, 00)
             };
-            
-            // act
-            var identifier = check.Save();
-
-            // assert
-            Assert.That(identifier, Is.EqualTo(check.Identifier));
-            var file = new FileInfo(Path.Combine(_repository.DefaultPath, "objects", check.GetType().Name.ToLower(), string.Format("{0}.json", identifier)));
-            Assert.That(file.Exists, Is.True);
+			TestEntity(check);
         }
 
-        [Test]
-        public void Fail()
-        {
-            Assert.False(true);
-        }
+	    [Test]
+	    public void SaveMeal()
+	    {
+		    // arrange
+			var entity = new Meal()
+			{
+				Carbohydrates = 120,
+				Name = "Test Meal"
+			};
+		    TestEntity(entity);
+	    }
 
-        [Test]
-        [Ignore("another time")]
-        public void Ignore()
-        {
-            Assert.True(false);
-        }
+		[Test]
+		public void SaveInsulinDose()
+		{
+			// arrange
+			var entity = new InsulinDose()
+			{
+				Insulin = 5
+			};
+			TestEntity(entity);
+		}
 
-        [Test]
-        public void Inconclusive()
-        {
-            Assert.Inconclusive("Inconclusive");
-        }
+	    private void TestEntity(Persistable entity)
+	    {
+		    var expected = new
+		    {
+			    Identifier = entity.Identifier,
+			    Filespec =
+				    Path.Combine(_repository.DefaultPath, entity.GetType().Name.ToLower(), string.Format("{0}.json", entity.Identifier))
+		    };
+
+		    // act
+		    var actual = new
+		    {
+			    Identifier = entity.Save(),
+			    Filespec = _repository.GetFilespec(entity)
+		    };
+
+		    // assert
+		    Assert.That(actual.Identifier, Is.EqualTo(expected.Identifier));
+		    Assert.That(actual.Filespec, Is.EqualTo(expected.Filespec));
+		    Assert.That(File.Exists(actual.Filespec));
+	    }
     }
 }

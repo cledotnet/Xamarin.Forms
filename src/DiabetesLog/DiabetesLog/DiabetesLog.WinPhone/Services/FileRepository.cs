@@ -93,6 +93,18 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.WinPhone.Services
             }
         }
 
-        public string DefaultPath { get { return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "objects"); } }
+	    public void Delete(Persistable entity)
+	    {
+		    var filespec = BuildFilespec(entity);
+		    if (File.Exists(filespec))
+			    File.Delete(filespec);
+	    }
+
+		public string GetFilespec(Persistable entity)
+		{
+			return BuildFilespec(entity);
+		}
+
+	    public string DefaultPath { get { return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "objects"); } }
     }
 }

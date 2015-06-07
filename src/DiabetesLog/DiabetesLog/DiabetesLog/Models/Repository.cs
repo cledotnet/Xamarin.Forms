@@ -13,5 +13,6 @@ namespace Cleveland.DotNet.Sig.DiabetesLog.Models
 		string Save(Persistable entity);
 		IEnumerable<EntityType> Get<EntityType>(Func<EntityType, bool> filter = null) where EntityType : Persistable, new();
 		void Delete(Persistable entity);
+		string GetFilespec(Persistable entity);
 	}
 }
